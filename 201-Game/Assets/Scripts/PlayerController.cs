@@ -30,11 +30,12 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
         //Player movement from input
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
 
-      Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
-        rb.AddForce (speed * Time.deltaTime * movement);
+      Vector3 movement = new(horizontalInput, 0.0f, verticalInput);
+        movement = speed * Time.deltaTime * movement.normalized;
+       rb.MovePosition(transform.position + movement);
 
         //Player object follows mouse
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
