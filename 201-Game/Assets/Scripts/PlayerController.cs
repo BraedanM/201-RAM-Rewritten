@@ -1,7 +1,5 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float verticalInput;
     public float speed = 10.0f;
     public GameObject projectilePrefab;
+    public GameObject player;
 
 
     // Start is called before the first frame update
@@ -19,15 +18,16 @@ public class PlayerController : MonoBehaviour
     {
         mainCamera = FindObjectOfType<Camera>();
         rb = GetComponent<Rigidbody>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         //For the Player Projectile
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, transform.position + (player.transform.forward * 1.5f), player.transform.rotation);
         }
         //Player movement from input
         horizontalInput = Input.GetAxis("Horizontal");
