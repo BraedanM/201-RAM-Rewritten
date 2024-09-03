@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         mainCamera = FindObjectOfType<Camera>();
         rb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -49,5 +50,6 @@ public class PlayerController : MonoBehaviour
 
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-    }   
+    }
+
 }
