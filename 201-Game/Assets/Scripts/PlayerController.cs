@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //declaring objects and variables
     private Camera mainCamera;
     private Rigidbody rb;
     public float horizontalInput;
@@ -16,9 +17,13 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //finds the camera
         mainCamera = FindObjectOfType<Camera>();
+        //assigns name to rigidbody
         rb = GetComponent<Rigidbody>();
+        //finds the player object
         player = GameObject.Find("Player");
+        //helps stop the player moving on its own after collision
         rb.freezeRotation = true;
     }
 
@@ -33,7 +38,7 @@ public class PlayerController : MonoBehaviour
         //Player movement from input
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
-
+        //moves the rigidbody
       Vector3 movement = new(horizontalInput, 0.0f, verticalInput);
         movement = speed * Time.deltaTime * movement.normalized;
        rb.MovePosition(transform.position + movement);

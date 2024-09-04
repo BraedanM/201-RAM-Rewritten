@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
+    //boundaries set
     private float PosBound = 50;
     private float NegBound = -50;
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class DestroyOutOfBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //When an object hits the boundaries of whats set for the playable area, it gets deleted.
         if (transform.position.z > PosBound | transform.position.z < NegBound)
         {
             Debug.Log("z Pos/Neg object Deleted");
