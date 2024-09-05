@@ -75,6 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2087667164104467186}
   player: {fileID: 0}
+  projectilePrefab: {fileID: 734359049156511906, guid: 94a76e9efb37c3d4b9436b0b6203af37, type: 3}
+  startDelay: 1
+  spawnInterval: 5
 --- !u!195 &2087667164104467186
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -94,7 +97,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1332641556705968022
