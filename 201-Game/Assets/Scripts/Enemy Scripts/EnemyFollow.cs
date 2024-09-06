@@ -14,7 +14,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
-        InvokeRepeating(nameof(fire), startDelay, spawnInterval);
+        InvokeRepeating(nameof(Fire), startDelay, spawnInterval);
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class EnemyFollow : MonoBehaviour
         enemy.SetDestination(player.position);
     }
 
-    void fire()
+    void Fire()
     {
        
         Instantiate(projectilePrefab, transform.position, transform.rotation);

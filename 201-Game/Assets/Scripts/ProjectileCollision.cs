@@ -4,24 +4,14 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+   
+    private void OnTriggerEnter(Collider other) //only destroys enemies
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Walls"))
+        if (!other.CompareTag("Walls") && !other.CompareTag("Projectile") && !other.CompareTag("Player"))
         {
             Destroy(gameObject);
             Destroy(other.gameObject);
         }
+
     }
 }
