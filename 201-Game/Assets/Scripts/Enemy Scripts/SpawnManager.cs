@@ -7,37 +7,38 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
     //for game difficulty enemy spawn rate increases over time
     public float initialSpawnInt = 6f;//the start rate
-    public float intervalDecrease = 0.025f; // interval decreases by this value after each spawn
+    public float intervalDecrease = 4f; // interval decreases by this value after each spawn
     public float lowestSpawnInt = 0.5f; //lowest rate the interval gets to.
     private float spawnRangeX = 30;
     private float spawnPosZ = 35;
-    private float spawnInterval = 4f;
     private float spawnRangeX2 = -30;
     private float spawnPosZ2 = -35;   
     private float currentSpawnInterval;
+    private float timeSinceLastSpawn;
 
-    // Start is called before the first frame update
+    //for some reason when lots of objects are created the games speeds up
+    //and I can't figure out how to fix it
+  
     void Start()
     {
         currentSpawnInterval = initialSpawnInt;
-        StartCoroutine(SpawnEnemies());
+        timeSinceLastSpawn = 0f;
     }
-    IEnumerator SpawnEnemies()
+
+
+    
+    void FixedUpdate()
     {
-        while (true)
+        timeSinceLastSpawn += Time.deltaTime;
+
+        if (timeSinceLastSpawn >= currentSpawnInterval)
         {
-            InvokeRepeating(nameof(SpawnRandomEnemy), 0, spawnInterval);
-            InvokeRepeating(nameof(SpawnRandomEnemy2), 0, spawnInterval);
-            yield return new WaitForSeconds(currentSpawnInterval);
-
-            
+            SpawnRandomEnemy();
+            SpawnRandomEnemy2();
+            timeSinceLastSpawn = 0f;
             currentSpawnInterval = Mathf.Max(lowestSpawnInt, currentSpawnInterval - intervalDecrease);
+            Debug.Log("Current Spawn Interval: " + currentSpawnInterval);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {     
     }
 
    void SpawnRandomEnemy()

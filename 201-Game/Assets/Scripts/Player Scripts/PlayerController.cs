@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//player can go through walls when the game starts speeding up for some reason
 public class PlayerController : MonoBehaviour
 {
     //declaring objects and variables
