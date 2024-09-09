@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //script created from youtube tutorial
 //Dani Krossing, May 29th 2022, https://www.youtube.com/watch?v=9i0UGVUKiaE&t=687s
 public class PlayerHealth
 {
     private int currentMaxHealth;
-    private int currentHealth;
+    public int currentHealth;
+    
 
     //Properties
     public int Health //returns health and assigns health
@@ -63,6 +65,5 @@ public class PlayerHealth
         }
 
     }
-
 
 }
