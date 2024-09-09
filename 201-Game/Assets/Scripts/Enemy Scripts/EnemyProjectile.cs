@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Rendering.CameraUI;
 
 public class EnemyProjectile : MonoBehaviour
 {
+    public int projectileType;
     
     private void OnTriggerEnter(Collider other)
     {
         
         if (other.CompareTag("Player"))
         {
-            //when its hits the player it reduces the player health and destroys itself
-            GameManager.Gamemanager.playerHealth.DmgPlayer(2);
+            int dmg = 0;
+
+           
+            switch (projectileType)
+            {
+                case 1:
+                    dmg = 3; 
+                    break;
+                case 2:
+                    dmg = 5; 
+                    break;
+                case 3:
+                    dmg = 10; 
+                    break;
+            }
+
+           
+            GameManager.Gamemanager.playerHealth.DmgPlayer(dmg);
             Destroy(gameObject);
+        
         }
     }
 }

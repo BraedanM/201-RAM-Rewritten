@@ -7,13 +7,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public string newGameScene;
-    // Start is called before the first frame update
+    public GameObject story;
+    public GameObject tutorial;
+  
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -21,11 +23,30 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        tutorial.SetActive(true);      
+    }
+
+    public void StartGame()
+    {
+        tutorial.SetActive(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene(newGameScene);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void StoryWindow()
+    {
+        story.SetActive(true);
+    }
+
+    public void BackToMenu()
+    {
+        story.SetActive(false);
+        tutorial.SetActive(false);
+
     }
 }

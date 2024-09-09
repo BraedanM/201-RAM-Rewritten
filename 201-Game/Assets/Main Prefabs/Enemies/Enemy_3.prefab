@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: -3435070974121480849}
   player: {fileID: 0}
-  projectilePrefab: {fileID: 4164189746313188774, guid: 20a4c0fa3baa36745ab4be0574cf5a00, type: 3}
+  projectilePrefab: {fileID: 2683343379846583263, guid: 7284129cc2021c84588ed0bf82c7c8a7, type: 3}
 --- !u!1 &5970494741943755997
 GameObject:
   m_ObjectHideFlags: 0
