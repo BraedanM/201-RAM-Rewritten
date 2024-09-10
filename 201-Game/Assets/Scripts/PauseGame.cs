@@ -9,8 +9,11 @@ public class PauseGame : MonoBehaviour
 
     void Update()
     {
+        //when user hits the escape key the time is set to zero to freeze the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //if the user presses the escape key again instead of the resume button
+            //it checks if its paused and resumes if so
             if(Time.timeScale == 0)
                 ResumeGame();
             else
@@ -21,18 +24,18 @@ public class PauseGame : MonoBehaviour
 
    public void Pausegame()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);//make pause menu visible
+        Time.timeScale = 0f; //freeze game
     }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
+        pauseMenu.SetActive(false);//make menu invisible and rume time/game
         Time.timeScale = 1f;
     }
     public void ExitGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1f;//allow time to flow
+        SceneManager.LoadScene("Main Menu");//load main menu scene
     }
 }

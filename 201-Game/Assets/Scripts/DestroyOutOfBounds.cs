@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyOutOfBounds : MonoBehaviour
 {
+    //was mostly used when there we no physical walls but in case projectiles get out this will delete them
     //boundaries set
     private float PosBound = 50;
     private float NegBound = -50;

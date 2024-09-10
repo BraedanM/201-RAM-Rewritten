@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Gamemanager { get; private set; }
-    public PlayerHealth playerHealth = new PlayerHealth(100, 100);
+    public PlayerHealth playerHealth = new PlayerHealth(100, 100);//new player health object for the player
     void Awake()
     {
         //makes sure another gamemanager is not created and deletes it if so.

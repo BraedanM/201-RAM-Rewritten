@@ -9,7 +9,7 @@ public class ProjectileCollision : MonoBehaviour
     {
         if (!other.CompareTag("Walls") && !other.CompareTag("Projectile") && !other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject);//destroys both objects
             Destroy(other.gameObject);
         }
 

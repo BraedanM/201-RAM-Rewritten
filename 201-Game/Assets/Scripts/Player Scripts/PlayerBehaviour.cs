@@ -3,21 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//script created from youtube tutorial
-//Dani Krossing, May 29th 2022, https://www.youtube.com/watch?v=9i0UGVUKiaE&t=687s
 public class PlayerBehaviour : MonoBehaviour
 {
     public GameObject gameOver;
-    void Start()
-    {
-
-    }
-
 
     void Update()
     {
         GameOver();
-        if (Input.GetKeyDown(KeyCode.Space))
+        //for testing
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerTakeDmg(20);
             Debug.Log(GameManager.Gamemanager.playerHealth.Health);
@@ -27,21 +21,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             PlayerHeal(10);
             Debug.Log(GameManager.Gamemanager.playerHealth.Health);
-        }
+        }*/
     }
-    //damages the player with the amount by passing to game manager
-    private void PlayerTakeDmg(int dmg)
-    {
-        GameManager.Gamemanager.playerHealth.DmgPlayer(dmg);
-    }
-    //heals the player with the amount by passing to game manager
-    private void PlayerHeal(int healing)
-    {
-        GameManager.Gamemanager.playerHealth.HealPlayer(healing);
-    }
-
     public void GameOver()
     {
+        //when the players health gets to 0 or below, freeze the game and show game over window
         if (GameManager.Gamemanager.playerHealth.currentHealth <= 0)
         {
             Time.timeScale = 0f;
@@ -50,6 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void BackToMenu()
     {
+        //return time to flowing, remove window and send back to main menu
         Time.timeScale = 1f;
         gameOver.SetActive(false);
         SceneManager.LoadScene("Main Menu");

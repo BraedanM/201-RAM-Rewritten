@@ -36,7 +36,7 @@ public class PlayerHealth
         }
     }
 
-    //constructor
+    //constructor for Player Health
     public PlayerHealth(int health, int maxHealth)
     {
         currentHealth = health;
