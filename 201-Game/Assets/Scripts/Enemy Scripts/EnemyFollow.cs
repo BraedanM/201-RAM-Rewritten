@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.AI;//uses ai to avoid obstacles and follow player
 
 public class EnemyFollow : MonoBehaviour
 {
@@ -13,19 +13,17 @@ public class EnemyFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
-        InvokeRepeating(nameof(Fire), startDelay, spawnInterval);
+        player = GameObject.FindWithTag("Player").transform;//finds the object with player tag
+        InvokeRepeating(nameof(Fire), startDelay, spawnInterval);//fire projectile repeatedly
     }
 
-    // Update is called once per frame
     void Update()
     {       
-        enemy.SetDestination(player.position);
+        enemy.SetDestination(player.position);//targets the players position
     }
 
     void Fire()
-    {
-       
-        Instantiate(projectilePrefab, transform.position, transform.rotation);
+    {   
+        Instantiate(projectilePrefab, transform.position, transform.rotation);//spawns the enemy projectile
     }
 }

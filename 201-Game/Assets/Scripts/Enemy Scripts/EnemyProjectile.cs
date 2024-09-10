@@ -9,13 +9,12 @@ public class EnemyProjectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.CompareTag("Player"))
+        //depending on what number is assigned will determine the damage of the projectile
+        if (other.CompareTag("Player"))//if the object in contact is tagged as player do this
         {
             int dmg = 0;
 
-           
-            switch (projectileType)
+            switch (projectileType)//depending on what number do this amount of damage
             {
                 case 1:
                     dmg = 3; 
@@ -27,10 +26,9 @@ public class EnemyProjectile : MonoBehaviour
                     dmg = 10; 
                     break;
             }
-
-           
+        //damage player for this amount
             GameManager.Gamemanager.playerHealth.DmgPlayer(dmg);
-            Destroy(gameObject);
+            Destroy(gameObject);//destory the object when it after all this
         
         }
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //player can go through walls when the game starts speeding up for some reason
 public class PlayerController : MonoBehaviour
@@ -8,11 +9,14 @@ public class PlayerController : MonoBehaviour
     //declaring objects and variables
     private Camera mainCamera;
     private Rigidbody rb;
+    private float lastUse;
     public float horizontalInput;
     public float verticalInput;
     public float speed = 10.0f;
     public GameObject projectilePrefab;
     public GameObject player;
+    public int numberOfProjectiles = 5;
+    public float cooldown = 5f;
 
 
     // Start is called before the first frame update
@@ -33,9 +37,16 @@ public class PlayerController : MonoBehaviour
     {
         //For the Player Projectile
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
+        {//creates the prefab and positons it where the player is facing
             Instantiate(projectilePrefab, transform.position + (player.transform.forward * 1.5f), player.transform.rotation);
         }
+        //spawns the special attack 
+        if (Input.GetKeyDown(KeyCode.E) && Time.time > lastUse + cooldown)
+        {
+            SpawnProjectiles();
+            lastUse = Time.time;
+        }
+     
         //Player movement from input
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
@@ -58,4 +69,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void SpawnProjectiles()
+    {
+        for (int i = 0; i < numberOfProjectiles; i++)// spawns multiple as mush as the variable has
+        {
+            Vector3 spawnPosition = new Vector3(i * 1, 0, 1) + player.transform.position;//spawns based on where the player is
+            Instantiate(projectilePrefab, spawnPosition, player.transform.rotation);
+        }
+    }
 }
