@@ -3,7 +3,8 @@ Name: RAM: Rewritten
 Wiki: https://github.com/BraedanM/201-RAM-Rewritten/wiki  
 Font Title: https://fonts.google.com/specimen/Jersey+10/about?preview.text=RAM:%20RE 
 
-If the game won't work with the files with git ignore, I have provided the full game with all the files zipped up in case that works when configured to another PC.  
+If the game won't work with the files with git ignore, I have the full game with all the files zipped up in case that works when configured to another PC. 
+I won't upload it here as its 2.17GBs so will only send if needed.
 
 PLAYING THE GAME  
 MAIN MENU  
